@@ -1,0 +1,89 @@
+
+.container-fluid-footer {
+    overflow: hidden;
+    background: rgb(24, 24, 24);
+    color: #FFFDE7 !important;
+    margin-bottom: 0;
+    padding-bottom: 0
+}
+
+small {
+    font-size: calc(12px + (15 - 12) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+.bold-text {
+    color: #989c9e !important
+}
+
+.mt-55 {
+    margin-top: calc(50px + (60 - 50) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+h3 {
+    font-size: calc(34px + (40 - 34) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+.social {
+    font-size: 21px !important
+}
+
+.rights {
+    font-size: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+/* Addons */
+@media(max-width:575px){
+    .footer-umn-eco-logo, .footer-umn-eco-tagline{
+        text-align: center;
+    }
+}
+@media(max-width:706px){
+    .container-fluid-footer{
+        font-size: 28px !important;
+    }
+}
+.footer-umn-eco-tagline{
+    font-family: MADE Tommy Soft;
+    font-style: normal;
+    font-weight: 250;
+    font-size: 36px;
+    line-height: 45px;
+    text-align: right;
+}
+.footer-menu{
+    font-family: MADE Tommy Soft;
+    font-style: normal;
+    font-weight: 250;
+    font-size: 36px;
+    line-height: 45px;
+
+    color: #FFFDE7;
+}
+.footer-address{
+    font-family: 'MADE Tommy Soft 2';
+    font-style: normal;
+    font-weight: 250;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #FFFDE7;
+    vertical-align: middle;
+}
+.footer-menu-li{
+    text-decoration:none;
+    color: #FFFDE7;
+}
+.footer-menu-li:hover{
+    font-weight: bold;
+    color: #FFFDE7;
+}
+@media(max-width:670px){
+    .footer-menu{
+        font-size: 30px;
+    }
+}
+@media(max-width:578px){
+    .footer-menu{
+        text-align: center!important;
+    }
+}

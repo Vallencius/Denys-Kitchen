@@ -1,0 +1,43 @@
+@font-face{
+    font-family: 'Heavitas';
+    src:url('../../../fonts/Heavitas.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+    font-family: 'MADE Tommy Soft 3';
+    src:url('../../../fonts/MADE-Tommy-Soft-ExtraBold.otf') format('opentype');
+    font-weight: normal;
+}
+@font-face{
+    font-family: 'MADE Tommy Soft 2';
+    src:url('../../../fonts/MADE-Tommy-Soft-Light.otf') format('opentype');
+    font-weight: lighter;
+}
+@font-face{
+    font-family: 'MADE Tommy Soft';
+    src:url('../../../fonts/MADE-Tommy-Soft-Medium.otf') format('opentype');
+    font-weight: normal;
+}
+@font-face{
+    font-family: 'Neufreit Extra Bold';
+    src:url('../../../fonts/Neufreit-ExtraBold.otf') format('opentype');
+    font-weight: bolder;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Montserrat';
+    src:url('../../../fonts/Montserrat-Regular.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Montserrat Bold';
+    src:url('../../../fonts/Montserrat-SemiBold.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'Montserrat Bold 2';
+    src:url('../../../fonts/Montserrat-ExtraBold.ttf') format('truetype');
+}
