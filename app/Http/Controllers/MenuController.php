@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
+// use App\Models\Cart;
+// use App\Models\Menu;
 
 class MenuController extends Controller
 {
-    public function index(){
+    public function wa(){
         $cl = '%0A';
         $pesanan = "Tahu Cabe Garam 1".$cl.
                     "Nasi 1".$cl.

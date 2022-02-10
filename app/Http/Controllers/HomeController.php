@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Menu;
+use App\Models\Cart;
 
 class HomeController extends Controller
 {
@@ -12,21 +15,20 @@ class HomeController extends Controller
         ]);
     }
 
-    public function aboutus(){
-        return view('page.aboutus', [
-            'title' => "About Us"
+    public function cart(){
+        return view('page.cart', [
+            'title' => "Cart",
+            'orders' => Cart::All()->where('User_id',1),
+            'menus' => Menu::All(),
+            'test' => 0
         ]);
     }
 
     public function menu(){
         return view('page.menus', [
-            'title' => "Menu"
-        ]);
-    }
-
-    public function location(){
-        return view('page.location', [
-            'title' => "Location & Hours"
+            'title' => "Menu",
+            'categories' => Category::All(),
+            'menus' => Menu::All()
         ]);
     }
     

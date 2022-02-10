@@ -14,16 +14,13 @@
             <ul class="navbar-nav col-8">
                 <div class="nav-item-container mx-auto w-100 row justify-content-end">
                     <li class="nav-item col-3 text-end">
-                        <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link rounded" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item col-3 text-end">
-                        <a class="nav-link" href="{{ route('aboutus') }}">About Us</a>
+                        <a class="nav-link rounded" href="{{ route('menu') }}">Menu</a>
                     </li>
                     <li class="nav-item col-3 text-end">
-                        <a class="nav-link" href="{{ route('menu') }}">Menu</a>
-                    </li>
-                    <li class="nav-item col-3 text-end">
-                        <a class="nav-link" href="{{ route('location') }}">Location</a>
+                        <a class="nav-link rounded" href="{{ route('cart') }}">Cart</a>
                     </li>
                 </div>
             </ul>
@@ -45,13 +42,10 @@
             <a class="menu__link" href="{{ route('home') }}">Home</a>
         </li>
         <li class="menu__item">
-            <a class="menu__link" href="{{ route('aboutus') }}">About Us</a>
-        </li>
-        <li class="menu__item">
             <a class="menu__link" href="{{ route('menu') }}">Menu</a>
         </li>
         <li class="menu__item">
-            <a class="menu__link" href="{{ route('location') }}">Location</a>
+            <a class="menu__link" href="{{ route('cart') }}">Shopping Cart</a>
         </li>
     </ul>
 </nav>

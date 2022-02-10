@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,8 @@ use App\Http\Controllers\MenuController;
 
 //Main Web
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [HomeController::class, 'aboutus'])->name('aboutus');
+Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
 Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
-Route::get('/location', [HomeController::class, 'location'])->name('location');
 
 Route::get('/pesan', [MenuController::class, 'index'])->name('pesan');
 
