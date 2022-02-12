@@ -44,27 +44,32 @@
                     <button class="btn btn-danger">X</button>
                 </a>
                 <div class="infologo-text col-md-8 bkgs-white">
-                    <h2 class="text-color1 mt-3">{{ $menu->Nama }}</h2>
-                    <p class="text-color2"><b>Rp {{ $menu->Harga }}</b></p><br>
-                    <p class="text-color3">{{ $menu->Desc }}</p><br>
-                    <p class="text-color3 mb-1">Tingkat Kepedasan</p>
-                    <div class="input-group mb-2">
-                        <select class="form-select" id="inputGroupSelect01" name="Kepedasan">
-                            <option value="Tidak Pedas">Tidak Pedas</option>
-                            <option value="Sedang">Sedang</option>
-                            <option value="Pedas">Pedas</option>
-                        </select>
-                    </div>
-                    
-                    <label for="quantity" class="text-color3 mb-1">Quantity</label>
-                    <input type="number" class="form-control mb-2" id="quantity" name="quantity" min="1" value="1">
-                    
-                    <p class="text-color3 mb-1">Keterangan tambahan</p>
-                    <input type="text" class="form-control" id="keterangan" name="keterangan" placeholder="Isi Keterangan Disini...">
-                    <br>
-                    <button class="btn btn-success center mb-3">
-                        Order
-                    </button>
+                    <form method="post" action="/addCart">
+                        @csrf
+                        <input type="hidden" value="{{ $menu->id }}" name="Menu_id"> 
+                        <input type="hidden" value="{{ $user }}" name="User_id"> 
+                        <h2 class="text-color1 mt-3">{{ $menu->Nama }}</h2>
+                        <p class="text-color2"><b>Rp {{ $menu->Harga }}</b></p><br>
+                        <p class="text-color3">{{ $menu->Desc }}</p><br>
+                        <p class="text-color3 mb-1">Tingkat Kepedasan</p>
+                        <div class="input-group mb-2">
+                            <select class="form-select" id="inputGroupSelect01" name="Kepedasan">
+                                <option value="Tidak Pedas">Tidak Pedas</option>
+                                <option value="Sedang">Sedang</option>
+                                <option value="Pedas">Pedas</option>
+                            </select>
+                        </div>
+                        
+                        <label for="Quantity" class="text-color3 mb-1">Quantity</label>
+                        <input type="number" class="form-control mb-2" id="Quantity" name="Quantity" min="1" value="1">
+                        
+                        <p class="text-color3 mb-1">Keterangan tambahan</p>
+                        <input type="text" class="form-control" id="Keterangan" name="Keterangan" placeholder="Isi Keterangan Disini...">
+                        <br>
+                        <button class="btn btn-success center mb-3">
+                            Order
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

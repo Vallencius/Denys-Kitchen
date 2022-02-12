@@ -22,5 +22,6 @@ Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
 Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
 
 Route::get('/pesan', [MenuController::class, 'index'])->name('pesan');
+Route::post('/addCart', [MenuController::class, 'addCart'])->name('addCart');
 
 // Route::get('/test', [MenuController::class, 'whatsappNotification'])->name('send');

@@ -17,8 +17,6 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('Nama');
             $table->text('Alamat');
-            $table->string('Username');
-            $table->string('Password');
             $table->string('Whatsapp');
             $table->rememberToken();
             $table->timestamps();

@@ -772,21 +772,19 @@ class DatabaseSeeder extends Seeder
         User::create([
             'Nama' => 'Vallencius',
             'Alamat' => 'test',
-            'Username' => 'vallencius1901',
-            'Password' => bcrypt('haloo'),
             'Whatsapp' => '088233632633'
         ]);    
 
         //CART
         Cart::create([
-            'User_id' => 1,
+            'User_token' => "RPtztFkVwC6IvFtTY826Zyr5nfcNvljXmnjCpmn5",
             'Menu_id' => 1,
             'Kepedasan' => 'Pedas',
             'Quantity' => 2,
             'Keterangan' => 'Ga aeda'
         ]);    
         Cart::create([
-            'User_id' => 1,
+            'User_token' => "RPtztFkVwC6IvFtTY826Zyr5nfcNvljXmnjCpmn5",
             'Menu_id' => 63,
             'Kepedasan' => 'Sedang',
             'Quantity' => 1,
