@@ -47,7 +47,6 @@
                     <form method="post" action="/addCart">
                         @csrf
                         <input type="hidden" value="{{ $menu->id }}" name="Menu_id"> 
-                        <input type="hidden" value="{{ $user }}" name="User_id"> 
                         <h2 class="text-color1 mt-3">{{ $menu->Nama }}</h2>
                         <p class="text-color2"><b>Rp {{ $menu->Harga }}</b></p><br>
                         <p class="text-color3">{{ $menu->Desc }}</p><br>
@@ -80,7 +79,6 @@
 
 @section('custom-js')
 <script>
-
     function mBlur() {
         var element = document.getElementById('main');
         element.classList.add("modalBlur");

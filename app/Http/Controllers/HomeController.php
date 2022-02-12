@@ -21,7 +21,7 @@ class HomeController extends Controller
             'title' => "Cart",
             'orders' => Cart::All()->where('User_token',$value['_token']),
             'menus' => Menu::All(),
-            'test' => 0
+            'test' => 0,
         ]);
     }
 
@@ -30,9 +30,18 @@ class HomeController extends Controller
         return view('page.menus', [
             'title' => "Menu",
             'categories' => Category::All(),
-            'menus' => Menu::All(),
-            'user' => $value['_token']
+            'menus' => Menu::All()
         ]);
     }
     
+    public function bio(){
+        $value = request()->session()->all();
+        return view('page.bio',[
+            'title' => "Deny's Kitchen",
+            'orders' => Cart::All()->where('User_token',$value['_token']),
+            'menus' => Menu::All(),
+            'test' => 0,
+            'user' => $value['_token']
+        ]);
+    }
 }
