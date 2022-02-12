@@ -10,7 +10,7 @@
     <div id="main" class="main-container pt-5" style="background-color: rgb(24, 24, 24); color:white">
     <div class="home-desc container col-8 col-md-12 mx-auto row"  id="aboutus" style="padding-top:10rem;padding-bottom:10rem;">
             <div class="row" >
-                <h1 >Welcome to Deny's Kitchen</h1>
+                <h1 class="text-center mb-4"><img src="{{ asset('images/logo/menu.png') }}" style="width:25vw"></h1>
 
                 @foreach($categories as $category)
                     <h4>{{ $category->Name }}</h4>

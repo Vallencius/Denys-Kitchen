@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-md-2 mt-3">
                                 <button class="btn btn-primary mb-3"><img src="{{ asset('images/logo/edit.png') }}" style="width:15px;">  Edit</button>
-                                <button class="btn btn-danger mb-3"><img src="{{ asset('images/logo/delete.png') }}" style="width:15px;">  Remove</button>
+                                <a href={{ "/deleteCart/". $order->id }}><button class="btn btn-danger mb-3"><img src="{{ asset('images/logo/delete.png') }}" style="width:15px;">  Remove</button></a>
                             </div>
                         </div>
                     </li>

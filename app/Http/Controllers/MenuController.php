@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
 use App\Models\Cart;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\DB;
 // use App\Models\Menu;
 
 class MenuController extends Controller
@@ -33,9 +35,18 @@ class MenuController extends Controller
                 'Quantity' => $request->Quantity,
                 'Keterangan' => $keterangan,
             ]);
+            Alert::success('Item berhasil ditambahkan ke troli!');
             return redirect('/menu');
         }
         //Kalau udh ada di cart return sweetalert
-        return dd('Udh ada di cart');
+        // Alert::warning('Item sudah ada di troli', 'Silahkan blablabla');
+        Alert::html('Item berhasil diupdate!','<p>Quantity: 1 => 3</p><p>Kepedasan: Tidak Pedas => Tidak Pedas</p><p>Keterangan: - => Udh itu aja</p>','success');
+        return redirect('/menu');
+    }
+
+    public function deleteCart(Cart $cart){
+        DB::table('carts')->where('id', '=', $cart->id)->delete();
+        Alert::success('Item berhasil dihapus!');
+        return redirect('/cart');
     }
 }

@@ -42,7 +42,7 @@
 
     @yield('content')
 
-    
+    @include('sweetalert::alert')
     <!-- Javascript -->
     
     <!-- Lottie -->
