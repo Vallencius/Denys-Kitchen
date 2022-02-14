@@ -20,7 +20,7 @@
             </div>
             <div class="col-md-5"></div>
         </div>
-      <small>© Since 1995 - Deny's Kitchen</small>
+      <small>© Deny's Kitchen</small>
     </div>
     <!-- Copyright -->
   </footer>

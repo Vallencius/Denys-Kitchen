@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Menu;
 use App\Models\Cart;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
@@ -36,6 +37,10 @@ class HomeController extends Controller
     
     public function bio(){
         $value = request()->session()->all();
+        if(Cart::All()->where('User_token',$value['_token'])->first() == NULL){
+            Alert::warning("Troli masih kosong!");
+            return redirect("/cart");
+        }
         return view('page.bio',[
             'title' => "Deny's Kitchen",
             'orders' => Cart::All()->where('User_token',$value['_token']),

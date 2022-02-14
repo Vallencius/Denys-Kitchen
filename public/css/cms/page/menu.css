@@ -121,3 +121,7 @@ p{
     /* text-align: right; */
     font-size: 15px;
 }
+
+.menu-habis{
+    -webkit-filter:brightness(0.3);
+}

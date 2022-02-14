@@ -20,6 +20,7 @@ class CreateMenusTable extends Migration
             $table->string("Image");
             $table->text("Desc");
             $table->integer("Harga");
+            $table->integer("status")->default(1);
             $table->timestamps();
         });
     }

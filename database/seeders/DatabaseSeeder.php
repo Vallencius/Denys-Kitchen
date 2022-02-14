@@ -22,67 +22,51 @@ class DatabaseSeeder extends Seeder
         //Category
         Category::create([
             'Name' => 'Ayam Geprak',
-            'Slug' => 'ayam-geprak'
         ]);
         Category::create([
             'Name' => 'Mie Ayam Geprak',
-            'Slug' => 'mie-ayam-geprak'
         ]);
         Category::create([
             'Name' => 'Nasi Goreng',
-            'Slug' => 'nasi-goreng'
         ]);
         Category::create([
             'Name' => 'Mie Goreng/Kuah',
-            'Slug' => 'mie-goreng/kuah'
         ]);
         Category::create([
             'Name' => 'Kwetiaw Goreng/Kuah',
-            'Slug' => 'kwetiaw-goreng/kuah'
         ]);
         Category::create([
             'Name' => 'Bihun Goreng/Kuah',
-            'Slug' => 'bihun-goreng/kuah'
         ]);
         Category::create([
             'Name' => 'Aneka Sayur',
-            'Slug' => 'aneka-sayur'
         ]);
         Category::create([
             'Name' => 'Pangsit',
-            'Slug' => 'pangsit'
         ]);
         Category::create([
             'Name' => 'Mie Ayam',
-            'Slug' => 'mie-ayam'
         ]);
         Category::create([
             'Name' => 'Ayam Crispy',
-            'Slug' => 'ayam-crispy'
         ]);
         Category::create([
             'Name' => 'Cumi Crispy',
-            'Slug' => 'cumi-crispy'
         ]);
         Category::create([
             'Name' => 'Udang Crispy',
-            'Slug' => 'udang-crispy'
         ]);
         Category::create([
             'Name' => 'Kakap Crispy',
-            'Slug' => 'kakap-crispy'
         ]);
         Category::create([
             'Name' => 'Menu Special',
-            'Slug' => 'menu-special'
         ]);
         Category::create([
             'Name' => 'Minuman',
-            'Slug' => 'minuman'
         ]);
         Category::create([
             'Name' => 'Minuman Special',
-            'Slug' => 'minuman-special'
         ]);
 
         //Ayam geprak
@@ -770,9 +754,9 @@ class DatabaseSeeder extends Seeder
         
         //USER
         User::create([
-            'Nama' => 'Vallencius',
-            'Alamat' => 'test',
-            'Whatsapp' => '088233632633'
+            'name' => 'Admin',
+            'email' => 'Admin@Denys.com',
+            'password' => bcrypt('DenysKitchen2022')
         ]);    
 
         //CART

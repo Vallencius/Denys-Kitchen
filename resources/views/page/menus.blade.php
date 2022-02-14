@@ -15,13 +15,16 @@
                 @foreach($categories as $category)
                     <h4>{{ $category->Name }}</h4>
                     @foreach($menus->where('Category_id',$category->id) as $menu)
-                        <div class="col-md-5 text-center container-food">
+                        <div class="col-md-5 text-center container-food @if($menu->status == 0) menu-habis @endif">
                             <img src="{{ asset('storage/'.$menu->Image) }}" class="food-image">
                             <p>{{ $menu->Nama }}</p>
                             <p>{{ $menu->Desc }}</p>
-                            
                             <p class="content-harga">Rp {{ $menu->Harga }}</p>
-                            <a href="#{{ $menu->id }}" class="open-popup"><button class="btn btn-success order-btn" onclick="mBlur();">+ Keranjang</button></a>
+                            @if($menu->status == 0)
+                                <h3 style="-webkit-filter:brightness(1);">HABIS!</h3>
+                            @else
+                                <a href="#{{ $menu->id }}" class="open-popup"><button class="btn btn-success order-btn" onclick="mBlur();">+ Keranjang</button></a>
+                            @endif
                         </div>
                     @endforeach
                 @endforeach
