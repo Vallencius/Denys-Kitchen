@@ -91,7 +91,13 @@ body, html {
         left: 0;
         padding: 1rem 1rem 0 0
     }
+    
 }
+/* @media(max-width:770px){
+    .category-title{
+        margin-left:-20vw
+    }
+} */
 
 /* MENU */
 .container-food{
@@ -104,7 +110,7 @@ body, html {
 }
 
 .food-image{
-    width: 250px;
+    width: 20vw;
     margin: 5px;
     border-radius: 5px;
 }
@@ -115,6 +121,11 @@ body, html {
 
 p{
     margin: 0;
+    font-family:"Montserrat"
+}
+
+h3{
+    font-family:"Montserrat bold 2"
 }
 
 .content-harga{

@@ -6,7 +6,7 @@
     
     <!-- Page Title -->
     <title>{{ $title }}</title>
-    <!-- UMN ECO Icon -->
+    <!-- Denys Kitchen Logo -->
     <link rel="shorcut icon" href="{{ asset('/images/logo_denys.jpg') }}">
 
     <!-- CSS -->
@@ -18,7 +18,7 @@
     <!-- Font -->
     <link rel="stylesheet" href="{{ asset('css/cms/base/font.css') }}">
     <!-- Preloader -->
-    <link rel="stylesheet" href="{{ asset('css/cms/base/preloader.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/cms/base/preloader.css') }}"> --}}
     <!-- Custom Navbar -->
     <link rel="stylesheet" href="{{ asset('css/cms/base/navbar.css') }}">
     <!-- Footer -->
