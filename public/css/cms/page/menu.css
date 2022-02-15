@@ -110,7 +110,9 @@ body, html {
 }
 
 .food-image{
-    width: 20vw;
+    max-width: 20vw;
+    max-height: 30vh;
+    overflow: hidden;
     margin: 5px;
     border-radius: 5px;
 }
