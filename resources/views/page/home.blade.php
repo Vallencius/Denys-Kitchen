@@ -19,9 +19,9 @@
           <div class="col-md-1"></div>
       </div>
       <div class="pt-5" style="height:200px;"></div>
-      <div class="row" style="background-color:khaki">
-          <div class="col-md-1" style="background-color:khaki"></div>
-          <div class="col-md-5 mt-4 mb-4" style="background-color:khaki">
+      <div class="row" style="background-color:#F9F3E9">
+          <div class="col-md-1" style="background-color:#F9F3E9"></div>
+          <div class="col-md-5 mt-4 mb-4" style="background-color:#F9F3E9">
               <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="line-height: 40px">
                   <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
