@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('custom-css')
-    <link rel="stylesheet" href="{{ asset('css/cms/page/about-us.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cms/page/home.css') }}">
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@
           <div class="col-md-1"></div>
       </div>
       <div class="pt-5" style="height:200px;"></div>
-      <div class="row" style="background-color:#F9F3E9">
+      <div class="row" style="background-color:#F9F3E9; margin:auto">
           <div class="col-md-1" style="background-color:#F9F3E9"></div>
           <div class="col-md-5 mt-4 mb-4" style="background-color:#F9F3E9">
               <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="line-height: 40px">
@@ -61,15 +61,16 @@
                   </button>
                 </div>
           </div>
-          <div class="col-md-4 text-center" style="color:#111; margin:auto;">
-              <h1>Kunjungi Kami</h1>
-              <h5>Buka dari pukul 9:00 WIB hingga 21:00 WIB</h5>
-              <p>Jalan Kotabaru 5 No. 219, Sidorejo, Salatiga</p>
+          <div class="col-md-4 text-center" style="color:#111; margin:auto; font-family:'Montserrat'">
+              <h1>KUNJUNGI KAMI</h1>
+              <h5 >Jam operasional :</h5>
+              <h5>09.00 - 21.00 WIB</h5>
+              <p><img src="{{ asset('images/logo/location.png') }}" style="width: 30px; margin-right: 5px">Jalan Kotabaru 5 No. 219, Sidorejo, Salatiga</p>
               <br>
-              <h3>Also available in </h3>
+              <h4>Also available in </h4>
               <div class="mb-5">
-                <a href="https://gofood.link/u/qrlPn"><img src="{{ asset('/images/gofood.png') }}"  alt="Gofood" style="height:100px"></a>
-                <a href=https://grab.onelink.me/2695613898?pid=inappsharing&c=6-CYWGG4DZGPTJGX&is_retargeting=true&af_dp=grab%3A%2F%2Fopen%3FscreenType%3DGRABFOOD%26sourceID%3DA4pcqCZkS4%26merchantIDs%3D6-CYWGG4DZGPTJGX&af_force_deeplink=true&af_web_dp=https%3A%2F%2Fwww.grab.com"><img src="{{ asset('/images/grabfood.png') }}"  alt="Grabfood" style="height:100px"></a>
+                <a href="https://gofood.link/u/qrlPn"><img src="{{ asset('/images/gofood.png') }}" class="goFood" alt="Gofood" style="width:20%"></a>
+                <a href=https://grab.onelink.me/2695613898?pid=inappsharing&c=6-CYWGG4DZGPTJGX&is_retargeting=true&af_dp=grab%3A%2F%2Fopen%3FscreenType%3DGRABFOOD%26sourceID%3DA4pcqCZkS4%26merchantIDs%3D6-CYWGG4DZGPTJGX&af_force_deeplink=true&af_web_dp=https%3A%2F%2Fwww.grab.com"><img src="{{ asset('/images/grabfood.png') }}" class="grabFood" alt="Grabfood" style="width:20%"></a>
               </div>
               
           </div>
