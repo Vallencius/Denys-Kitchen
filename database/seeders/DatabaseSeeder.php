@@ -30,10 +30,10 @@ class DatabaseSeeder extends Seeder
             'Name' => 'Nasi Goreng',
         ]);
         Category::create([
-            'Name' => 'Mie Goreng/Kuah',
+            'Name' => 'Mie Goreng / Kuah',
         ]);
         Category::create([
-            'Name' => 'Kwetiaw Goreng/Kuah',
+            'Name' => 'Kwetiaw Goreng / Kuah',
         ]);
         Category::create([
             'Name' => 'Bihun Goreng/Kuah',

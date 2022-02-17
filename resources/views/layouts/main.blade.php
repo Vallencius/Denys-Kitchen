@@ -18,7 +18,7 @@
     <!-- Font -->
     <link rel="stylesheet" href="{{ asset('css/cms/base/font.css') }}">
     <!-- Preloader -->
-    {{-- <link rel="stylesheet" href="{{ asset('css/cms/base/preloader.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('css/cms/base/preloader.css') }}">
     <!-- Custom Navbar -->
     <link rel="stylesheet" href="{{ asset('css/cms/base/navbar.css') }}">
     <!-- Footer -->
@@ -33,10 +33,9 @@
 </head>
 <body>
     <!-- Preloader -->
-    {{-- <div id="preloader">
-        <lottie-player src="{{ asset('images/loading1-2022.json') }}"   speed="1"  loop autoplay class="lottie-gif col-lg-2 col-sm-4 col-6"></lottie-player>
-        <!-- <img src="{{ asset('images/gif-logo.gif') }}" class="loading-img" > -->
-    </div> --}}
+    <div id="preloader">
+        <lottie-player src="{{ asset('images/loading.json') }}" speed="1"  loop autoplay class="lottie-gif col-lg-2 col-sm-4 col-6"></lottie-player>
+    </div>
 
     @include('partials.navbar')
 
@@ -46,28 +45,21 @@
     <!-- Javascript -->
     
     <!-- Lottie -->
-    {{-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> --}}
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <!-- Jquery 4 -->
     <script src="{{ asset('js/cms/base/jquery/jquery-3.5.1.min.js') }}"></script>
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <!-- gsap -->
-    <script src="{{ asset('js/cms/base/gsap-3.6.0/gsap.min.js') }}"></script>
-    <script src="{{ asset('js/cms/base/gsap-3.6.0/ScrollTrigger.min.js') }}"></script>
-    <!-- <script src="{{ asset('js/cms/base/gsap-3.6.0/CSSRulePlugin.min.js') }}"></script> -->
     <!-- Sweetalert -->
     <script src="{{ asset('js/cms/base/sweetalert/sweetalert.js') }}"></script>
     <!-- Preloader -->
-    {{-- <script>
+    <script>
         $(window).on('load', function() {
             // Animate loader off screen
             width = $(window).width();
             $("#preloader").fadeOut("slow");
         });
-        $(".menu__link").click(function(){
-            $('#main-navigation-toggle').prop('checked', false);
-        });
-    </script> --}}
+    </script>
 
     @include('partials.footer')
 
