@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Twilio\Rest\Client;
 use App\Models\Cart;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use App\Models\Menu;
+use Exception;
+use Twilio\Rest\Client;
 
 class MenuController extends Controller
 {
@@ -52,23 +53,40 @@ class MenuController extends Controller
         return redirect('/cart');
     }
 
-    public function orderWA(Cart $cart, Request $request){
-        $orders = Cart::All()->where('User_token',$cart->User_token);
-        $menus = Menu::All();
-        $cl = '%0A';
-        $pesanan = "Nama: ".$request->Nama.$cl
-                    ."Alamat: ".$request->Alamat.$cl
-                    ."Uang pembayaran: ".$request->Uang.$cl.$cl;
-        
-        foreach($orders as $order){
-            foreach($menus->where('id',$order->Menu_id) as $menu){
-                $pesanan .= $menu->Nama." ".$order->Quantity.$cl
-                ."Level Kepedasan: ".$order->Kepedasan.$cl
-                ."Keterangan: ".$order->Keterangan.$cl.$cl;
-            }
-        }
-        $pesanan .= "Total: Rp ".$request->Total;
-        DB::table('carts')->where('User_token', '=', $cart->User_token)->delete();
-        return redirect("http://wa.me/+6289530875429?text=".$pesanan);
+    
+    public function test(){
+        $sid    = "AC7d57db87bd7cc8ac66994aeb56ef7f50"; 
+        $token  = "48f7b1af0201cd7d44ae2f098a03e2d5"; 
+        $twilio = new Client($sid, $token); 
+
+        $message = $twilio->messages 
+                ->create("whatsapp:+6288233632633", // to 
+                        array( 
+                            "from" => "whatsapp:+14155238886",       
+                            "body" => "Your Yummy Cupcakes Company order of 1 dozen frosted cupcakes has shipped and should be delivered on July 10, 2019. Details: http://www.yummycupcakes.com/" 
+                        ) 
+                ); 
+
+        dd('SMS Sent Successfully.');
     }
+
+    // public function orderWA(Cart $cart, Request $request){
+    //     $orders = Cart::All()->where('User_token',$cart->User_token);
+    //     $menus = Menu::All();
+    //     $cl = '%0A';
+    //     $pesanan = "Nama: ".$request->Nama.$cl
+    //                 ."Alamat: ".$request->Alamat.$cl
+    //                 ."Uang pembayaran: ".$request->Uang.$cl.$cl;
+        
+    //     foreach($orders as $order){
+    //         foreach($menus->where('id',$order->Menu_id) as $menu){
+    //             $pesanan .= $menu->Nama." ".$order->Quantity.$cl
+    //             ."Level Kepedasan: ".$order->Kepedasan.$cl
+    //             ."Keterangan: ".$order->Keterangan.$cl.$cl;
+    //         }
+    //     }
+    //     $pesanan .= "Total: Rp ".$request->Total;
+    //     DB::table('carts')->where('User_token', '=', $cart->User_token)->delete();
+    //     return redirect("http://wa.me/+6289530875429?text=".$pesanan);
+    // }
 }

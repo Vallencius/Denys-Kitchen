@@ -34,6 +34,15 @@ class HomeController extends Controller
             'menus' => Menu::All()
         ]);
     }
+
+    public function menuDetail(Category $category){
+        $value = request()->session()->all();
+        return view('page.menuDetail', [
+            'title' => "Menu",
+            'category' => $category,
+            'menus' => Menu::All()->where('Category_id',$category->id),
+        ]);
+    }
     
     public function bio(){
         $value = request()->session()->all();
