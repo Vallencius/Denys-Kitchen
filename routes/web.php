@@ -20,8 +20,7 @@ use App\Http\Controllers\AdminController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
 Route::get('/menu', [HomeController::class, 'menu'])->name('menu');
-Route::get('/menu/{category:Name}', [HomeController::class, 'menuDetail']);
-Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
+Route::get('/menu/{category:id}', [HomeController::class, 'menuDetail']);
 Route::get('/bio', [HomeController::class, 'bio'])->name('bio');
 
 //CART

@@ -11,7 +11,7 @@
             <h1 class="text-center mb-4"><img src="{{ asset('images/logo/menu.png') }}" style="width:25vw; min-width: 200px"></h1>
             <h1 class="text-center mt-3 mb-5">Pilih Kategori Menu!</h1>
             @foreach($categories as $category)
-                <a href="menu/{{ $category->Name }}" class="text-decoration-none">
+                <a href="menu/{{ $category->id }}" class="text-decoration-none">
                     <div class="col-md-5 text-center container-food mt-2">
                         <h3 class="text-center text-uppercase category-title">{{ $category->Name }}</h3>
                     </div>
