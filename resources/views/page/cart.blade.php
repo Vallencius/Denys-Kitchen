@@ -21,10 +21,17 @@
                                     <div class="col-md-10">
                                         <h5>{{ $menu->Nama }}</h5>
                                         <p>Jumlah: {{ $order->Quantity }}</p>
-                                        <p>Tingkat Kepedasan: {{ $order->Kepedasan }}</p>
+                                        @if( $menu->Category_id  == 15)
+                                            <p>Es/Panas: {{ $order->Opsi }}</p>
+                                        @else
+                                            @if( $menu->Category_id == 16 || Str::contains($menu->Nama, 'Cabe Garam'))
+                                            @else
+                                                <p>Tingkat Kepedasan: {{ $order->Opsi }}</p>
+                                            @endif
+                                        @endif
                                         <p>Keterangan: {{ $order->Keterangan }}</p>
                                         <p>Total: Rp {{ $order->Quantity * $menu->Harga }}</p>
-                                        <p style="display:none">{{ $test += $order->Quantity * $menu->Harga }}</p>
+                                        <p style="display:none">{{ $total += $order->Quantity * $menu->Harga }}</p>
                                     </div>
                                     <div class="col-md-2 mt-3">
                                         <a href="#{{ $order->id }}" class="open-popup"><button class="btn btn-primary mb-3" onclick="mBlur();"><img src="{{ asset('images/logo/edit.png') }}" style="width:15px;">  Edit</button></a>
@@ -37,7 +44,7 @@
                 </div>
             @endforeach
             <div class="mt-3 row">
-                <h4 class="col-md-10 text-total mb-2">Total pemesanan: Rp {{ $test }}</h4>
+                <h4 class="col-md-10 text-total mb-2">Total pemesanan: Rp {{ $total }}</h4>
                 <div class="col-md-2">
                     <a href="/bio"><button class="btn btn-success" style="width:100%">Order</button></a>
                 </div>
@@ -64,14 +71,28 @@
                             <h2 class="text-color3 mt-3">{{ $menu->Nama }}</h2>
                             <p class="text-color3"><b>Rp {{ $menu->Harga }}</b></p><br>
                             <p class="text-color3">{{ $menu->Desc }}</p><br>
-                            <p class="text-color3 mb-1">Tingkat Kepedasan</p>
-                            <div class="input-group mb-2">
-                                <select class="form-select" id="inputGroupSelect01" name="Kepedasan">
-                                    <option value="Tidak Pedas" @if( $order->Kepedasan == 'Tidak Pedas') selected @endif>Tidak Pedas</option>
-                                    <option value="Sedang" @if( $order->Kepedasan == 'Sedang') selected @endif>Sedang</option>
-                                    <option value="Pedas" @if( $order->Kepedasan == 'Pedas') selected @endif>Pedas</option>
-                                </select>
-                            </div>
+                            @if( $menu->Category_id == 15)
+                                <p class="text-color3 mb-1">Es/Panas</p>
+                                <div class="input-group mb-2">
+                                    <select class="form-select" id="inputGroupSelect01" name="Opsi">
+                                        <option value="Es" @if( $order->Opsi == 'Es') selected @endif>Es</option>
+                                        <option value="Hangat" @if( $order->Opsi == 'Hangat') selected @endif>Hangat</option>
+                                        <option value="Panas" @if( $order->Opsi == 'Panas') selected @endif>Panas</option>
+                                    </select>
+                                </div>
+                            @else
+                                @if($menu->Category_id == 16 || Str::contains($menu->Nama, 'Cabe Garam'))
+                                @else
+                                <p class="text-color3 mb-1">Tingkat Kepedasan</p>
+                                <div class="input-group mb-2">
+                                    <select class="form-select" id="inputGroupSelect01" name="Opsi">
+                                        <option value="Tidak Pedas" @if( $order->Opsi == 'Tidak Pedas') selected @endif>Tidak Pedas</option>
+                                        <option value="Sedang" @if( $order->Opsi == 'Sedang') selected @endif>Sedang</option>
+                                        <option value="Pedas" @if( $order->Opsi == 'Pedas') selected @endif>Pedas</option>
+                                    </select>
+                                </div>
+                                @endif
+                            @endif
                             
                             <label for="Quantity" class="text-color3 mb-1">Quantity</label>
                             <input type="number" class="form-control mb-2" id="Quantity" name="Quantity" min="1" value="{{ $order->Quantity }}">

@@ -8,8 +8,8 @@
 <div id="main" class="main-container pt-5" style="background-color: rgb(24, 24, 24); color:white;">
     <div class="home-desc container col-8 col-md-12 mx-auto row"  id="aboutus" style="padding-top:10rem;padding-bottom:10rem;">
         <div class="row" style="margin: 0 auto" >
-            <h1 class="text-center mb-4"><img src="{{ asset('images/logo/menu.png') }}" style="width:25vw; min-width: 200px"></h1>
-            <h1 class="text-center mt-3 mb-5">Pilih Kategori Menu!</h1>
+            <h1 class="text-center mb-4"><img src="{{ asset('images/logo/menu.png') }}" style="width:25vw; min-width: 150px"></h1>
+            <h1 class="text-center mt-3 mb-5 title1">Pilih Kategori Menu!</h1>
             @foreach($categories as $category)
                 <a href="menu/{{ $category->id }}" class="text-decoration-none">
                     <div class="col-md-5 text-center container-food mt-2">

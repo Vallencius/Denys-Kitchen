@@ -18,7 +18,7 @@ class CreateCartsTable extends Migration
             // $table->foreignId('User_id');
             $table->string('User_token');
             $table->foreignId('Menu_id');
-            $table->string('Kepedasan');
+            $table->string('Opsi')->nullable();
             $table->integer('Quantity');
             $table->string('Keterangan');
             $table->timestamps();

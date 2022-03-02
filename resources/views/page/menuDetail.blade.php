@@ -9,7 +9,7 @@
 <div id="main" class="main-container pt-5" style="background-color: rgb(24, 24, 24); color:white;">
     <div class="home-desc container col-8 col-md-12 mx-auto row"  id="aboutus" style="padding-top:10rem;padding-bottom:10rem;">
         <div class="row" style="margin: 0 auto" >
-            <h1 class="text-center mb-4"><img src="{{ asset('images/logo/menu.png') }}" style="width:25vw"></h1>
+            <h1 class="text-center mb-4"><img src="{{ asset('images/logo/menu.png') }}" style="width:25vw; min-width: 150px"></h1>
 
             <a href="/menu" class="text-decoration-none mt-5"><h3 class="text-start"><img src={{ asset("images/logo/back.png") }} width="10px" height="20px"> BACK</h3></a>
                 <h3 class="text-center text-uppercase">{{ $category->Name }}</h3>
@@ -50,14 +50,28 @@
                         <h2 class="text-color1 mt-3">{{ $menu->Nama }}</h2>
                         <p class="text-color2"><b>Rp {{ $menu->Harga }}</b></p><br>
                         <p class="text-color3">{{ $menu->Desc }}</p><br>
-                        <p class="text-color3 mb-1">Tingkat Kepedasan</p>
-                        <div class="input-group mb-2">
-                            <select class="form-select" id="inputGroupSelect01" name="Kepedasan">
-                                <option value="Tidak Pedas">Tidak Pedas</option>
-                                <option value="Sedang">Sedang</option>
-                                <option value="Pedas">Pedas</option>
-                            </select>
-                        </div>
+                        @if( $menu->Category_id == 15 )
+                            <p class="text-color3 mb-1">Es/Panas</p>
+                            <div class="input-group mb-2">
+                                <select class="form-select" id="inputGroupSelect01" name="Opsi">
+                                    <option value="Es">Es</option>
+                                    <option value="Hangat">Hangat</option>
+                                    <option value="Panas">Panas</option>
+                                </select>
+                            </div>
+                        @else
+                            @if( $menu->Category_id == 16 || Str::contains($menu->Nama, 'Cabe Garam'))
+                            @else
+                            <p class="text-color3 mb-1">Tingkat Kepedasan</p>
+                            <div class="input-group mb-2">
+                                <select class="form-select" id="inputGroupSelect01" name="Opsi">
+                                    <option value="Tidak Pedas">Tidak Pedas</option>
+                                    <option value="Sedang">Sedang</option>
+                                    <option value="Pedas">Pedas</option>
+                                </select>
+                            </div>
+                            @endif
+                        @endif
                         
                         <label for="Quantity" class="text-color3 mb-1">Quantity</label>
                         <input type="number" class="form-control mb-2" id="Quantity" name="Quantity" min="1" value="1">

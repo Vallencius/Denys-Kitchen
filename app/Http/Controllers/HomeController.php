@@ -22,7 +22,7 @@ class HomeController extends Controller
             'title' => "Cart",
             'orders' => Cart::All()->where('User_token',$value['_token']),
             'menus' => Menu::All(),
-            'test' => 0,
+            'total' => 0,
         ]);
     }
 

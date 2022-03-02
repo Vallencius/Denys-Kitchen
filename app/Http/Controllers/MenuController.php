@@ -21,7 +21,7 @@ class MenuController extends Controller
             Cart::create([
                 'User_token' => $request->_token,
                 'Menu_id' => $request->Menu_id,
-                'Kepedasan' => $request->Kepedasan,
+                'Opsi' => $request->Opsi,
                 'Quantity' => $request->Quantity,
                 'Keterangan' => $keterangan,
             ]);
@@ -44,7 +44,7 @@ class MenuController extends Controller
         $cart = Cart::find($request->Cart_id);
         $cart->Quantity = $request->Quantity;
         $cart->Keterangan = $request->Keterangan;
-        $cart->Kepedasan = $request->Kepedasan;
+        $cart->Opsi = $request->Opsi;
         $cart->update();
         // Alert::info('Item berhasil diupdate!');
         Alert::success('Item berhasil diupdate!');
@@ -62,9 +62,16 @@ class MenuController extends Controller
         
         foreach($orders as $order){
             foreach($menus->where('id',$order->Menu_id) as $menu){
-                $pesanan .= $menu->Nama." ".$order->Quantity.$cl
-                ."Level Kepedasan: ".$order->Kepedasan.$cl
-                ."Keterangan: ".$order->Keterangan.$cl.$cl;
+                if($menu->Category_id == 15){
+                    $pesanan .= $menu->Nama." ".$order->Quantity.$cl
+                    ."Es/Panas: ".$order->Opsi.$cl
+                    ."Keterangan: ".$order->Keterangan.$cl.$cl;
+                }
+                else{
+                    $pesanan .= $menu->Nama." ".$order->Quantity.$cl
+                    ."Level Kepedasan: ".$order->Opsi.$cl
+                    ."Keterangan: ".$order->Keterangan.$cl.$cl;
+                }
             }
         }
         $pesanan .= "Total: Rp ".$request->Total;

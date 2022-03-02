@@ -757,22 +757,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'Admin@Denys.com',
             'password' => bcrypt('DenysKitchen2022')
-        ]);    
-
-        //CART
-        Cart::create([
-            'User_token' => "RPtztFkVwC6IvFtTY826Zyr5nfcNvljXmnjCpmn5",
-            'Menu_id' => 1,
-            'Kepedasan' => 'Pedas',
-            'Quantity' => 2,
-            'Keterangan' => 'Ga aeda'
-        ]);    
-        Cart::create([
-            'User_token' => "RPtztFkVwC6IvFtTY826Zyr5nfcNvljXmnjCpmn5",
-            'Menu_id' => 63,
-            'Kepedasan' => 'Sedang',
-            'Quantity' => 1,
-            'Keterangan' => 'Ga ada'
-        ]);    
+        ]);     
     }
 }
