@@ -2,11 +2,11 @@
 
 @section('custom-css')
     <link rel="stylesheet" href="{{ asset('css/cms/page/cart.css') }}">   
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="{{ asset('css/admin/css/dashboard.css') }}">
 @endsection
 
 @section('content')
-<h1 class="text-center">Tambah Menu</h1>
+<h1 class="text-center title">Tambah Menu</h1>
 <div class="container" style="width: 80vw; font-size:14px">
     <form method="post" action="/addMenu" enctype="multipart/form-data">
         @csrf

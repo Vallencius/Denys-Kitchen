@@ -1,0 +1,23 @@
+.navbar-title{
+    margin-left: 10px;
+    font-family:"Montserrat";
+    display: none;
+}
+
+.navbar-title-mobile{
+    margin-left: 10px;
+    font-family:"Montserrat";
+    display:none;
+}
+
+@media(max-width:768px){
+    .navbar-title-mobile{
+        display: contents;
+    }
+}
+
+@media(min-width:768px){
+    .navbar-title{
+        display: contents;
+    }
+}

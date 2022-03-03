@@ -1,35 +1,44 @@
 @extends('admin.layouts.dashboard')
 
 @section('custom-css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.css" integrity="sha512-9tISBnhZjiw7MV4a1gbemtB9tmPcoJ7ahj8QWIc0daBCdvlKjEA48oLlo6zALYm3037tPYYulT0YQyJIJJoyMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="{{ asset('css/admin/css/dashboard.css') }}"/>
 @endsection
 
 @section('content')
-<div clas="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="text-center">
-                <h1>Menu Setting</h1>
+<div class="container">
+    <div class="text-center">
+        <h1 class="title">Menu Setting</h1>
+        <p>Matikan tombol untuk mengubah tampilan menu tersebut menjadi "HABIS!"</p>
+        <fieldset class="mb-3 border border-dark rounded" style="width:20%">
+            <div class="form-check form-switch text-start ms-2">
+                <input class="form-check-input" type="checkbox" checked disabled> Menu Tersedia
+                <br>
+                <input class="form-check-input" type="checkbox" disabled> Menu Habis
             </div>
-        </div>
+        </fieldset>
     </div>
     
-    <div class="col-md-12">
-        @foreach($menus as $menu)
-            <div class="row" style="margin:30px">
-                <div class="col-6 text-right">
-                    <h4>{{ $menu->Nama }}
-                    </h4>
-                </div>
-
-                <div class="col-6 text-right">
+    <div class="accordion mb-5" id="accordionExample">
+        @foreach($categories as $category)
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading{{ $category->id }}">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $category->id }}" aria-expanded="false" aria-controls="collapse{{ $category->id }}">
+              {{ $category->Name }}
+            </button>
+          </h2>
+          <div id="collapse{{ $category->id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $category->id }}" data-bs-parent="#accordionExample">
+            @foreach($menus->where('Category_id', $category->id) as $menu)
+            <div class="accordion-body">
+                <p>{{ $menu->Nama }}
                     <div class="form-check form-switch">
                         <input data-id="{{ $menu->id }}" class="toggle-class form-check-input" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Opened" data-off="Closed" {{ $menu->status ? 'checked' : '' }}>
                     </div>
-                </div>
+                </p>
             </div>
-        @endforeach    
+            @endforeach
+          </div>
+        </div>
+        @endforeach
     </div>
 </div>
 @endsection

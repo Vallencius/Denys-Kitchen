@@ -58,7 +58,8 @@ class AdminController extends Controller
     public function setting(){
         return view('admin.page.setting',[
             'title' => 'Menu setting',
-            'menus' => Menu::All()
+            'menus' => Menu::All(),
+            'categories' => Category::All()
         ]);
     }
 
