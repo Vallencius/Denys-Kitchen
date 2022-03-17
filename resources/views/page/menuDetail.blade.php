@@ -11,7 +11,7 @@
         <div class="row" style="margin: 0 auto" >
             <h1 class="text-center mb-4"><img src="{{ asset('images/logo/menu.png') }}" style="width:25vw; min-width: 150px"></h1>
 
-            <a href="/menu" class="text-decoration-none mt-5"><h3 class="text-start"><img src={{ asset("images/logo/back.png") }} width="10px" height="20px"> BACK</h3></a>
+            <a href="/menu" class="text-decoration-none mt-5 back-icon"><h3 class="text-start"><img src={{ asset("images/logo/back.png") }} width="10px" height="20px"> BACK</h3></a>
                 <h3 class="text-center text-uppercase">{{ $category->Name }}</h3>
                 @foreach($menus as $menu)
                     <div class="col-md-5 text-center container-food @if($menu->status == 0) menu-habis @endif">
@@ -38,7 +38,7 @@
         <div class="popup__content">
             <div class="row infologo">
                 <div class="col-md-4 mb-4">
-                    <img data-src="{{ asset('storage/'.$menu->Image) }}" class="image-fluid img-div" style="width:100%; border-radius:10px; margin-left:-30px;">
+                    <img src="{{ asset('storage/'.$menu->Image) }}" class="image-fluid img-div" style="width:100%; border-radius:10px; margin-left:-30px;">
                 </div>
                 <a href="#" class="popup__close" onclick="mUnblur();" style="margin-top: 10vh; margin-right: 10%;">
                     <button class="btn btn-danger">X</button>

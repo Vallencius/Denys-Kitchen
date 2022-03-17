@@ -27,16 +27,13 @@ class HomeController extends Controller
     }
 
     public function menu(){
-        $value = request()->session()->all();
         return view('page.menus', [
             'title' => "Menu",
-            'categories' => Category::All(),
-            'menus' => Menu::All()
+            'categories' => Category::All()
         ]);
     }
 
     public function menuDetail(Category $category){
-        $value = request()->session()->all();
         return view('page.menuDetail', [
             'title' => "Menu",
             'category' => $category,

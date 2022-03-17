@@ -11,37 +11,56 @@
     <form method="post" action="/addMenu" enctype="multipart/form-data">
         @csrf
         <label for="Nama" class="text-color3 mb-1">Nama Makanan</label>
-        <input type="text" class="form-control mb-2" id="Nama" name="Nama" placeholder="Masukkan Nama Makanan" required>
-        
-        <label for="Category" class="text-color3 mb-1">Kategori</label>
-        <div class="input-group mb-2">
+        <input type="text" class="form-control @error('Nama') is-invalid @enderror" id="Nama" name="Nama" placeholder="Masukkan Nama Makanan" value="{{ old('Nama') }}" required>
+        @error('Nama')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+
+        <label for="Category_id" class="text-color3 mb-1 mt-2">Kategori</label>
+        <div class="input-group">
             <select class="form-select" id="inputGroupSelect01" name="Category_id">
                 @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->Name }}</option>
+                    <option @if(old('Category_id') == $category->id) selected @endif value="{{ $category->id }}">{{ $category->Name }}</option>
                 @endforeach
             </select>
         </div>
+        @error('Category_id')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
 
-        <div class="mb-3">
-            <label for="Image" class="form-label">Foto Makanan</label>
-            <input class="form-control @error('Image') is-invalid @enderror mb-2" type="file" id="Image" name="Image">
+        <div>
+            <label for="Image" class="form-label mt-2">Foto Makanan</label>
+            <input class="form-control @error('Image') is-invalid @enderror" type="file" id="Image" name="Image">
         </div>
-        
         @error('Image')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
         @enderror
         
-        <label for="Harga" class="text-color3">Harga</label>
-        <div class="input-group mb-2">
+        <label for="Harga" class="text-color3 mb-1 mt-2">Harga</label>
+        <div class="input-group">
             <span class="input-group-text">Rp</span>
-            <input type="number" class="form-control " id="Harga" name="Harga" aria-describedby="basic-addon1" placeholder="20.000" step="500" required>
+            <input type="number" class="form-control @error('Harga') is-invalid @enderror" id="Harga" name="Harga" aria-describedby="basic-addon1" placeholder="20.000" value="{{ old('Harga') }}" required>
         </div>
+        @error('Harga')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
 
-        <label for="Desc" class="text-color3 mb-1">Deskripsi</label>
-        <input type="text" class="form-control" id="Desc" name="Desc" placeholder="Masukkan deskripsi" required>
-            
+        <label for="Desc" class="text-color3 mb-1 mt-2">Deskripsi</label>
+        <input type="text" class="form-control @error('Desc') is-invalid @enderror" id="Desc" name="Desc" placeholder="Masukkan deskripsi" value="{{ old('Desc') }}" required>
+        @error('Desc')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+
         <button type="submit" class="btn btn-success center mb-3 mt-3">
             Submit
         </button>

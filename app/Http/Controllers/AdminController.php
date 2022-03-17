@@ -64,21 +64,27 @@ class AdminController extends Controller
     }
 
     public function updateMenu(Menu $menu, Request $request){
-        // return dd($request);
+        $valid = $request->validate([
+            'Nama' => 'required|unique:menus,Nama',
+            'Category_id' => 'required',
+            'Harga' => 'required',
+            'Desc' => 'required'
+        ]);
         $menu = Menu::find($menu->id);
-        $menu->Nama = $request->Nama;
-        $menu->Harga = $request->Harga;
-        $menu->Category_id = $request->Category_id;
-        $menu->Desc = $request->Desc;
+        $menu->Nama = $valid->Nama;
+        $menu->Harga = $valid->Harga;
+        $menu->Category_id = $valid->Category_id;
+        $menu->Desc = $valid->Desc;
+        
         if($request->Image){
             if($menu->Image){
-                Storage::delete($menu->Image);
+                Storage::delete('menu/'.$menu->Image);
             }
-            $menu->Image = $request->file('Image')->store('');
+            $menu->Image = $request->file('Image')->store('menu');
         }
+        return dd($menu);
         
         $menu->update();
-        // Alert::info('Item berhasil diupdate!');
         Alert::success('Menu berhasil diupdate!');
         return redirect('/dashboardAdmin');
     }
@@ -92,7 +98,7 @@ class AdminController extends Controller
     public function deleteMenu(Menu $menu){
         $deleted = DB::table('menus')->where('id', '=', $menu->id)->delete();
         if($menu->Image){
-            Storage::delete($menu->Image);
+            Storage::delete('menu/'.$menu->Image);
         }
         return redirect('/dashboardAdmin')->with('success','Data berhasil dihapus');
     }
@@ -107,14 +113,14 @@ class AdminController extends Controller
     public function addDataMenu(Request $request){
         // return ddd($request);
         $valid = $request->validate([
-            'Nama' => 'required',
+            'Nama' => 'required|unique:menus,Nama',
             'Category_id' => 'required',
             'Image' => 'required',
             'Harga' => 'required',
             'Desc' => 'required'
         ]);
 
-        $valid['Image'] = $request->file('Image')->store('');
+        $valid['Image'] = $request->file('Image')->store('menu');
         Menu::create($valid);
 
         $request->session()->flash('success','Penambahan Menu Baru Berhasil!');

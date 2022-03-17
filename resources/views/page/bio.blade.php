@@ -18,7 +18,7 @@
         <label for="Uang" class="text-color3 mb-1">Uang Pembayaran</label>
         <div class="input-group">
             <span class="input-group-text">Rp</span>
-            <input type="text" class="form-control" id="Uang" name="Uang" placeholder="50.000" required>
+            <input type="number" class="form-control" id="Uang" name="Uang" placeholder="50.000" required>
         </div>
 
         @foreach($orders as $order)

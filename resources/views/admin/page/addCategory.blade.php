@@ -12,8 +12,13 @@
     <form method="post" action="/addCategory">
         @csrf
         <label for="Name" class="text-color3 mb-1">Nama Category</label>
-        <input type="text" class="form-control mb-2" id="Name" name="Name" placeholder="Masukkan Nama Category" required>
-            
+        <input type="text" class="form-control @error('Name') is-invalid @enderror" id="Name" name="Name" placeholder="Masukkan Nama Category" value="{{ old('Name') }}" required>
+        @error('Name')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+
         <button type="submit" class="btn btn-success center mb-3 mt-3">
             Submit
         </button>
