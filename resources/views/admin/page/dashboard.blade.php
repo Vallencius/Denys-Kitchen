@@ -93,6 +93,9 @@
                                             <td><label for="Image" class="form-label">Foto Makanan:</label></td>
                                             <td><input class="form-control @error('Image') is-invalid @enderror mb-2" type="file" id="Image" name="Image"></td>
                                         </tr>
+                                        <tr>
+                                            <td><small style="color:red">*Foto wajib dibawah 2MB!</small></td>
+                                        </tr>
                                     </table>
                                     
                                 
@@ -124,9 +127,9 @@
 
 @section('custom-js')
 <script style="width: 80%">
-   $(document).ready(function() {
-    $('#example').DataTable();
-} );
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
 </script>
 <script>
     @foreach($menus as $menu)

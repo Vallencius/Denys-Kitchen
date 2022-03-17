@@ -64,29 +64,25 @@ class AdminController extends Controller
     }
 
     public function updateMenu(Menu $menu, Request $request){
-        $valid = $request->validate([
-            'Nama' => 'required|unique:menus,Nama',
-            'Category_id' => 'required',
-            'Harga' => 'required',
-            'Desc' => 'required'
-        ]);
+        // return dd($request);
         $menu = Menu::find($menu->id);
-        $menu->Nama = $valid->Nama;
-        $menu->Harga = $valid->Harga;
-        $menu->Category_id = $valid->Category_id;
-        $menu->Desc = $valid->Desc;
-        
+        $menu->Nama = $request->Nama;
+        $menu->Harga = $request->Harga;
+        $menu->Category_id = $request->Category_id;
+        $menu->Desc = $request->Desc;
+        return dd($request);
         if($request->Image){
+            $valid = $request->validate([
+                'Image' => 'required|image|file|max:2048'
+            ]);
             if($menu->Image){
-                Storage::delete('menu/'.$menu->Image);
+                Storage::delete($menu->Image);
             }
-            $menu->Image = $request->file('Image')->store('menu');
+            $menu->Image = $request->file('Image')->store('');
         }
-        return dd($menu);
         
         $menu->update();
-        Alert::success('Menu berhasil diupdate!');
-        return redirect('/dashboardAdmin');
+        return redirect('/dashboardAdmin')->flash('success','Menu berhasil diupdate!');
     }
 
     public function changeStatus(Request $request){
@@ -98,7 +94,7 @@ class AdminController extends Controller
     public function deleteMenu(Menu $menu){
         $deleted = DB::table('menus')->where('id', '=', $menu->id)->delete();
         if($menu->Image){
-            Storage::delete('menu/'.$menu->Image);
+            Storage::delete($menu->Image);
         }
         return redirect('/dashboardAdmin')->with('success','Data berhasil dihapus');
     }
@@ -120,7 +116,7 @@ class AdminController extends Controller
             'Desc' => 'required'
         ]);
 
-        $valid['Image'] = $request->file('Image')->store('menu');
+        $valid['Image'] = $request->file('Image')->store('');
         Menu::create($valid);
 
         $request->session()->flash('success','Penambahan Menu Baru Berhasil!');
