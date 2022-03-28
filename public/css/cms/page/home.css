@@ -7,3 +7,10 @@ h1{
 #scene-3{
     background:rgb(24, 24, 24);
 }
+.marker {
+display: block;
+border: none;
+border-radius: 50%;
+cursor: pointer;
+padding: 0;
+}

@@ -2,6 +2,8 @@
 
 @section('custom-css')
     <link rel="stylesheet" href="{{ asset('css/cms/page/home.css') }}">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
 @endsection
 
 @section('content')
@@ -72,12 +74,29 @@
                 <a href="https://gofood.link/u/qrlPn"><img src="{{ asset('/images/gofood.png') }}" class="goFood" alt="Gofood" style="width:20%"></a>
                 <a href=https://grab.onelink.me/2695613898?pid=inappsharing&c=6-CYWGG4DZGPTJGX&is_retargeting=true&af_dp=grab%3A%2F%2Fopen%3FscreenType%3DGRABFOOD%26sourceID%3DA4pcqCZkS4%26merchantIDs%3D6-CYWGG4DZGPTJGX&af_force_deeplink=true&af_web_dp=https%3A%2F%2Fwww.grab.com"><img src="{{ asset('/images/grabfood.png') }}" class="grabFood" alt="Grabfood" style="width:20%"></a>
               </div>
-              
           </div>
+      </div>
+      <div class="mt-5">
+        <h1 class="text-center" style="color: white;">Find Us on Google Maps!</h1>
+        <div id='map' style='width: 100%; height: 300px;'></div>
       </div>
 </div>
 @endsection
 
 @section('custom-js')
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoidmFsbGVuY2l1cyIsImEiOiJjbDE3Y241bWwwMjZvM2RyemVnZ3NjejJ0In0.eONFEEDHiNYgp4j7IRvHBQ';
+      var map = new mapboxgl.Map({
+          container: 'map', // container ID
+          style: 'mapbox://styles/mapbox/streets-v11', // style URL
+          center: [110.48488221187316, -7.305836818244831], // starting position [lng, lat]
+          zoom: 16 // starting zoom
+      });
+
+      const marker = new mapboxgl.Marker({
+          color: "#FF0000"
+      }).setLngLat([110.48488221187316, -7.305836818244831])
+      .addTo(map);
+    </script>
     <script src="{{ asset('js/cms/page/about-us.js') }}"></script>
 @endsection
