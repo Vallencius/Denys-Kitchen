@@ -14,7 +14,7 @@ class MenuController extends Controller
         //Ambil all dari cart cari ada yg user dan menu id sama atau ga, kalo ada yg sama alert kalo udh ada di cart, kalo blm create
             
         $cart = Cart::where('User_token',$request->_token)->where('Menu_id',$request->Menu_id)->first();
-        // return dd($cart);
+        //return dd($request);
         if($cart == NULL){
             if($request->Keterangan == NULL) $keterangan = '-';
             else $keterangan = $request->Keterangan;

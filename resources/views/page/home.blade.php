@@ -2,7 +2,6 @@
 
 @section('custom-css')
     <link rel="stylesheet" href="{{ asset('css/cms/page/home.css') }}">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
 @endsection
 
@@ -20,7 +19,7 @@
           </div>
           <div class="col-md-1"></div>
       </div>
-      <div class="pt-5" style="height:200px;"></div>
+      <div class="pt-5" style="height:5%;"></div>
       <div class="row" style="background-color:#F9F3E9; margin:auto">
           <div class="col-md-1" style="background-color:#F9F3E9"></div>
           <div class="col-md-5 mt-4 mb-4" style="background-color:#F9F3E9">
@@ -84,6 +83,7 @@
 @endsection
 
 @section('custom-js')
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
     <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoidmFsbGVuY2l1cyIsImEiOiJjbDE3Y241bWwwMjZvM2RyemVnZ3NjejJ0In0.eONFEEDHiNYgp4j7IRvHBQ';
       var map = new mapboxgl.Map({
