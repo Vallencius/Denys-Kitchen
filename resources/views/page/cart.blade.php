@@ -68,8 +68,8 @@
                         <form method="post" action="/updateCart">
                             @csrf
                             <input type="hidden" value="{{ $order->id }}" name="Cart_id"> 
-                            <h2 class="text-color3 mt-3">{{ $menu->Nama }}</h2>
-                            <p class="text-color3"><b>Rp {{ $menu->Harga }}</b></p><br>
+                            <h2 class="text-color1 mt-3">{{ $menu->Nama }}</h2>
+                            <p class="text-color2"><b>Rp {{ $menu->Harga }}</b></p><br>
                             <p class="text-color3">{{ $menu->Desc }}</p><br>
                             @if( $menu->Category_id == 15)
                                 <p class="text-color3 mb-1">Es/Panas</p>
@@ -120,8 +120,6 @@
         var element = document.getElementById('main');
         element.classList.add("modalBlurCart");
         var x = document.getElementsByTagName("BODY")[0];
-        x.style.overflow = "hidden";
-        $(".navbar").hide();
         if ($(window).width() <= 767) {
             $('.navigation-toggle-span').attr('style','display:none !important');
             $('.toggler-container').attr('style','display:none !important');
@@ -132,8 +130,6 @@
         var element = document.getElementById('main');
         element.classList.remove("modalBlurCart");
         var x = document.getElementsByTagName("BODY")[0];
-        x.style.overflow = "auto";
-        $(".navbar").show();
         if ($(window).width() <= 767) {
             $('.navigation-toggle-span').attr('style','display:block !important');
             $('.toggler-container').attr('style','display:block !important');

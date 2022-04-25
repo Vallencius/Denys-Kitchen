@@ -239,14 +239,6 @@
 }
 
 
-@media (max-width: 1080px) {
-    /* .pop-img {
-        width: 45%;
-    }
-    .popup__content p {
-        width: 80%;
-    } */
-}
 @media (max-width: 768px) {
     .infologo-text {
         width: 70%;
@@ -275,7 +267,6 @@
 }
 .modalBlurCart {
     -webkit-filter: blur(10px);
-    background-color:rgba(22, 22, 22, 0.4);
     overflow: hidden;
 }
 

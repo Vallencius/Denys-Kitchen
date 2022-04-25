@@ -174,4 +174,12 @@ h3{
     .title1{
         font-size: 15px !important;
     }
+    .home-desc{
+        padding-bottom:10rem;
+    }
+}
+
+.home-desc{
+    padding-top:5rem;
+    padding-bottom:10rem;
 }
