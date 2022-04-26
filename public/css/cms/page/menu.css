@@ -114,7 +114,17 @@ body, html {
     max-height: 30vh;
     overflow: hidden;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.no-food-image{
+    max-width: 20vw;
+    max-height: 30vh;
+    overflow: hidden;
+    margin: 5px;
+    border-radius: 40px;
+    padding: 20px;
 }
 
 .order-btn{
@@ -142,6 +152,7 @@ h3{
     /* text-align: right; */
     font-size: 15px;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .menu-habis{

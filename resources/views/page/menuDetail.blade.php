@@ -18,7 +18,7 @@
                         @if (file_exists(public_path().'/storage/'.$menu->Image))
                             <img src="{{ asset('storage/'.$menu->Image) }}" class="food-image">
                         @else
-                            <img src="{{ asset('images/no-image.png') }}"  class="food-image">
+                            <img src="{{ asset('images/no-image.png') }}"  class="no-food-image">
                         @endif
 
                         <p>{{ $menu->Nama }}</p>
