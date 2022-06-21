@@ -15,11 +15,13 @@
                 <h3 class="text-center text-uppercase">{{ $category->Name }}</h3>
                 @foreach($menus as $menu)
                     <div class="col-md-5 text-center container-food @if($menu->status == 0) menu-habis @endif">
+                        <img src="{{ asset('storage/'.$menu->Image) }}" class="@if ($menu->Image == 'no-image.png') no-food-image @else food-image @endif">
+                        {{-- BUAT HOSTING GA BISA
                         @if (file_exists(public_path().'/storage/'.$menu->Image))
                             <img src="{{ asset('storage/'.$menu->Image) }}" class="food-image">
                         @else
                             <img src="{{ asset('images/no-image.png') }}"  class="no-food-image">
-                        @endif
+                        @endif --}}
 
                         <p>{{ $menu->Nama }}</p>
                         <p>{{ $menu->Desc }}</p>

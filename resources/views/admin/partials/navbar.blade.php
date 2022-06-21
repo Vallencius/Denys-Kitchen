@@ -9,7 +9,10 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li>
-                    <a href="/dashboardAdmin" class="dropdown-item">Dashboard</a>
+                    <a href="/dashboardAdmin" class="dropdown-item">Data Menu</a>
+                </li>
+                <li>
+                  <a href="/dataCategory" class="dropdown-item">Data Category</a>
                 </li>
                 <li>
                     <a href="/menuSetting" class="dropdown-item">Menu Setting</a>

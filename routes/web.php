@@ -36,12 +36,15 @@ Route::post('/logoutAdmin', [AdminController::class, 'logout']);
 
 //Halaman utama admin
 Route::get('/dashboardAdmin', [AdminController::class, 'dashboard'])->middleware('auth');
+Route::get('/dataCategory', [AdminController::class, 'dataCategory'])->middleware('auth');
 Route::get('/addMenu', [AdminController::class, 'addMenu'])->middleware('auth');
 Route::post('/addMenu', [AdminController::class, 'addDataMenu'])->middleware('auth');
 Route::get('/addCategory', [AdminController::class, 'addCategory'])->middleware('auth');
 Route::post('/addCategory', [AdminController::class, 'addDataCategory'])->middleware('auth');
 Route::post('/updateMenu/{menu:id}', [AdminController::class, 'updateMenu'])->middleware('auth');
 Route::post('/deleteMenu/{menu:id}', [AdminController::class, 'deleteMenu'])->middleware('auth');
+Route::post('/updateCategory/{category:id}', [AdminController::class, 'updateCategory'])->middleware('auth');
+Route::post('/deleteCategory/{category:id}', [AdminController::class, 'deleteCategory'])->middleware('auth');
 
 //Recruitment Setting Admin
 Route::get('/menuSetting', [AdminController::class, 'setting'])->middleware('auth');

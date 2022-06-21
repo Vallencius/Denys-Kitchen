@@ -188,6 +188,17 @@ h3{
     .home-desc{
         padding-bottom:10rem;
     }
+    
+    .no-food-image{
+        max-width: 30vw;
+        max-height: 45vh;
+        border-radius: 30px;
+    }
+    .food-image{
+        max-width: 30vw;
+        max-height: 45vh;
+        border-radius: 13px;
+    }
 }
 
 .home-desc{

@@ -17,13 +17,12 @@
     </div>
         
     <div class="container text-right mb-3">
-        <a href="/addCategory"><button class="btn btn-success">+ Add Category</button></a>
         <a href="/addMenu"><button class="btn btn-success">+ Add Menu</button></a>
     </div>
 
 
     <div class="container mb-5" style="width:80%;">
-        <table height="100px" id="example" class="table table-striped table-bordered" style="width:100%" >
+        <table height="100px" id="example" class="display nowrap table-striped table-bordered table" style="width:100%" >
             <thead>
             <tr>
                 <th>#</th>
@@ -128,7 +127,9 @@
 @section('custom-js')
 <script style="width: 80%">
     $(document).ready(function() {
-        $('#example').DataTable();
+        var table = $('#example').DataTable( {
+            scrollX: true,
+        } );
     } );
 </script>
 <script>

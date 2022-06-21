@@ -55,6 +55,14 @@ class AdminController extends Controller
         ]);
     }
 
+    public function dataCategory(){
+        return view('admin.page.dataCategory',[
+            'categories' => Category::All(),
+            'title'=>'Dashboard Admin',
+            'i' => 1
+        ]);
+    }
+
     public function setting(){
         return view('admin.page.setting',[
             'title' => 'Menu setting',
@@ -70,7 +78,6 @@ class AdminController extends Controller
         $menu->Harga = $request->Harga;
         $menu->Category_id = $request->Category_id;
         $menu->Desc = $request->Desc;
-        return dd($request);
         if($request->Image){
             $valid = $request->validate([
                 'Image' => 'required|image|file|max:2048'
@@ -82,7 +89,7 @@ class AdminController extends Controller
         }
         
         $menu->update();
-        return redirect('/dashboardAdmin')->flash('success','Menu berhasil diupdate!');
+        return redirect('/dashboardAdmin')->with('success','Menu berhasil diupdate!');
     }
 
     public function changeStatus(Request $request){
@@ -111,16 +118,19 @@ class AdminController extends Controller
         $valid = $request->validate([
             'Nama' => 'required|unique:menus,Nama',
             'Category_id' => 'required',
-            'Image' => 'required',
             'Harga' => 'required',
             'Desc' => 'required'
         ]);
 
-        $valid['Image'] = $request->file('Image')->store('');
+        if($request->Image){
+            $valid['Image'] = $request->file('Image')->store('');
+        }else{
+            $valid['Image'] = "no-image.png";
+        }
         Menu::create($valid);
 
-        $request->session()->flash('success','Penambahan Menu Baru Berhasil!');
-        return redirect('/dashboardAdmin');
+        $request->session();
+        return redirect('/dashboardAdmin')->with('success','Penambahan Menu Baru Berhasil!');
     }
     
     public function addCategory(){
@@ -137,7 +147,22 @@ class AdminController extends Controller
 
         Category::create($valid);
 
-        $request->session()->flash('success','Penambahan Category Baru Berhasil!');
-        return redirect('/dashboardAdmin');
+        $request->session();
+        return redirect('/dataCategory')->with('success','Penambahan Category Baru Berhasil!');
+    }
+
+    public function updateCategory(Category $category, Request $request){
+        $category->Name = $request->Name;
+        
+        $category->update();
+        return redirect('/dataCategory')->with('success','Kategori berhasil diupdate!');
+    }
+
+    public function deleteCategory(Category $category){
+        $deleted = DB::table('categories')->where('id', '=', $category->id)->delete();
+
+        $deleted = DB::table('menus')->where('Category_id', '=', $category->id)->delete();
+        
+        return redirect('/dataCategory')->with('success','Data berhasil dihapus');
     }
 }
